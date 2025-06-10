@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dg-focus-cache-v1.0.4'; // <--- THIS MUST BE INCREMENTED!
+const CACHE_NAME = 'dg-focus-cache-v1.0.7'; // <--- THIS MUST BE INCREMENTED!
 const urlsToCache = [
     '/',
     '/index.html',
@@ -64,3 +64,13 @@ self.addEventListener('activate', event => {
             .then(() => self.clients.claim()) // Takes control of existing clients immediately
     );
 });
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+        .then(registration => {
+            console.log('Service Worker Registered!', registration);
+        })
+        .catch(error => {
+            console.error('Service Worker registration failed:', error);
+        });
+}
