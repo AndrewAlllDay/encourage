@@ -31,7 +31,6 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     margin: 0;
     padding: 0;
-    /* Updated background with a subtle linear gradient */
     background: linear-gradient(to bottom right, var(--background-color-light), var(--background-color-dark));
     color: var(--text-color);
     display: flex;
@@ -41,28 +40,36 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.6;
-    /* Slightly improved global line-height for readability */
+    /* Removed overflow-x: hidden as it was for the menu */
 }
 
+/* Removed body.menu-open as the menu is gone */
+
 header {
+    display: flex;
+    justify-content: center;
     background-color: var(--primary-color);
     color: var(--light-text-color);
     padding: 1.2em 1em;
     text-align: center;
+    /* Centers the h1 */
     box-shadow: 0 2px 4px var(--shadow-color);
     position: sticky;
     top: 0;
     z-index: 100;
+    /* Removed flex properties as they're not needed for a single h1 */
 }
 
 h1 {
     margin: 0;
     font-size: 1.7em;
     font-weight: var(--font-bold);
-    /* Use font variable */
     letter-spacing: 0.02em;
-    /* Subtle letter spacing for headings */
 }
+
+/* --- REMOVED ALL MENU-RELATED CSS BELOW THIS LINE --- */
+/* (e.g., .hamburger-menu, .side-menu, .menu-overlay, .close-menu-btn) */
+/* ----------------------------------------------------- */
 
 main {
     flex: 1;
@@ -89,7 +96,6 @@ button {
     cursor: pointer;
     font-size: 1.3em;
     font-weight: var(--font-semibold);
-    /* Use font variable */
     margin-top: 30px;
     box-shadow: 0 4px 10px var(--shadow-color);
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
@@ -100,13 +106,11 @@ button {
 
 button:hover {
     background-color: #2980B9;
-    /* Slightly darker blue on hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
 
 button:active {
     background-color: #2170A6;
-    /* Even darker blue on active */
     transform: translateY(1px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
@@ -114,6 +118,7 @@ button:active {
 /* Modal Styles */
 .modal {
     display: none;
+    /* Controlled by JS show/hide */
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -123,6 +128,7 @@ button:active {
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.6);
     display: flex;
+    /* Changed from none to flex for centering */
     align-items: center;
     justify-content: center;
     -webkit-backdrop-filter: blur(5px);
@@ -150,8 +156,6 @@ button:active {
     animation: fadeInScale 0.3s ease-out forwards;
 }
 
-
-
 @keyframes fadeInScale {
     from {
         transform: scale(0.9);
@@ -165,25 +169,19 @@ button:active {
 }
 
 #modalEncouragementText {
-    /* Target the specific paragraph in the modal */
     font-size: 1.6em;
     font-weight: var(--font-bold);
     color: var(--primary-color);
+    /* Changed to primary-color for consistency with other elements */
     margin: 20px 0;
     line-height: 1.4;
     opacity: 0;
-    /* Initially hidden for new animation */
-    /* REMOVE THIS LINE: transform: translateY(20px); */
     transition: opacity 0.4s ease-out;
-    /* ONLY transition opacity now */
 }
 
-/* Class to make the message visible and animate it */
 #modalEncouragementText.animate-in {
     opacity: 1;
-    /* REMOVE THIS LINE: transform: translateY(0); */
 }
-
 
 .close-button {
     color: #aaaaaa;
@@ -209,6 +207,8 @@ footer {
     padding: 1em;
     font-size: 0.85em;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: auto;
+    /* Push footer to the bottom */
 }
 
 /* Optional: Media query for slightly smaller text on very small screens */
@@ -229,4 +229,8 @@ footer {
     #modalEncouragementText {
         font-size: 1.4em;
     }
+}
+
+.header-logo {
+    max-width: 75px;
 }

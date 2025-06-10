@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Breathe - deep breath before every shot, and practice good breathing throughout the round.",
         "Commit - Focus on a spot, trust your disc and line choice.",
         "Reset - No matter the outcome of the shot, come back to emotional zero every time. Treat each shot as its own tournament. Talk about the good shots as much as the bad ones.",
-        "Attitude - People will remember you for how you acted on the course, not the way you played. Remember the privilege you have to be able to travel the country as a competitor, and try to enjoy every moment.",
+        "Attitude - People will remember you for how you acted on the course, not the way you played.",
 
     ];
 
