@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encourage</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Encourage">
+    <link rel="apple-touch-icon" href="/images/icon-192x192.png">
+</head>
+
+<body>
+    <header>
+        <h1>Encourage</h1>
+    </header>
+    <main>
+        <p>Hit the button for a quick boost of encouragement!</p>
+        <button id="encourageButton">Click Here</button>
+    </main>
+
+    <div id="encouragementModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p id="modalEncouragementText"></p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Service Worker Registration (remains the same)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registered successfully with scope:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.error('Service Worker registration failed:', error);
+                    });
+            });
+        }
+    </script>
+</body>
+
+</html>
