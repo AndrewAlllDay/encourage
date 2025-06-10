@@ -224,3 +224,7 @@ footer {
         font-size: 1.4em;
     }
 }
+
+.header-logo {
+    max-width: 75px;
+}
