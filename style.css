@@ -35,12 +35,8 @@ body {
     color: var(--text-color);
     display: flex;
     flex-direction: column;
-    /* CHANGE THIS: */
     height: 100vh;
-    /* Changed from min-height to exact height */
     overflow: hidden;
-    /* Added to prevent body-level scrolling */
-    /* END CHANGE */
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -48,6 +44,11 @@ body {
 }
 
 header {
+    display: flex;
+    justify-content: center;
+    /* Center the logo */
+    align-items: center;
+    /* Vertically align the logo */
     background-color: var(--primary-color);
     color: var(--light-text-color);
     padding: 1.2em 1em;
@@ -58,16 +59,27 @@ header {
     z-index: 100;
 }
 
-h1 {
+/* Removed h1 styling as it's replaced by an image */
+/* h1 {
     margin: 0;
     font-size: 1.7em;
     font-weight: var(--font-bold);
     letter-spacing: 0.02em;
+} */
+
+.header-logo {
+    height: 40px;
+    /* Adjusted height for consistency, maintain aspect ratio */
+    width: auto;
+    /* Ensure aspect ratio is maintained */
+    max-width: 75px;
+    /* Use max-width for responsiveness as sent in your CSS */
+    display: block;
+    /* Ensures it behaves nicely in flexbox */
 }
 
 main {
     flex: 1;
-    /* This will make main take up all available space */
     padding: 25px;
     display: flex;
     flex-direction: column;
@@ -112,8 +124,6 @@ button:active {
 
 /* Modal Styles */
 .modal {
-    /* The modal itself is fixed and takes up 100% height/width,
-       so its scroll should be independent if its content overflows. */
     display: none;
     position: fixed;
     z-index: 1000;
@@ -122,7 +132,6 @@ button:active {
     width: 100%;
     height: 100%;
     overflow: auto;
-    /* Allows modal content to scroll if it gets too long */
     background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     align-items: center;
@@ -150,6 +159,13 @@ button:active {
     width: 350px;
     text-align: center;
     animation: fadeInScale 0.3s ease-out forwards;
+    /* Added flex properties for centering content and breathing circle */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+    /* Ensure enough space for content and circle */
 }
 
 @keyframes fadeInScale {
@@ -169,6 +185,7 @@ button:active {
     font-weight: var(--font-bold);
     color: var(--primary-color);
     margin: 20px 0;
+    /* Ensures spacing above/below text */
     line-height: 1.4;
     opacity: 0;
     transition: opacity 0.4s ease-out;
@@ -177,6 +194,53 @@ button:active {
 #modalEncouragementText.animate-in {
     opacity: 1;
 }
+
+/* --- NEW STYLES FOR THE BREATHING CIRCLE --- */
+.breathing-circle {
+    width: 100px;
+    /* Starting size */
+    height: 100px;
+    /* Starting size */
+    background-color: var(--secondary-color);
+    /* A calm, soothing color from your palette */
+    border-radius: 50%;
+    /* Makes it a perfect circle */
+    margin: 30px auto 20px auto;
+    /* Centers it horizontally, provides vertical spacing */
+    opacity: 0.7;
+    /* Start slightly transparent */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow for depth */
+    animation: breath 6s infinite ease-in-out;
+    /* Apply the animation */
+    display: none;
+    /* Initially hidden, JavaScript will control visibility */
+    transform: scale(0.8);
+    /* Initial scale matches keyframe start */
+}
+
+@keyframes breath {
+    0% {
+        transform: scale(0.8);
+        /* Start slightly smaller, "breathe out" */
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.2);
+        /* Expand to 120%, "breathe in" */
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.8);
+        /* Return to original size, "breathe out" */
+        opacity: 0.7;
+    }
+}
+
+/* ------------------------------------------- */
+
 
 .close-button {
     color: #aaaaaa;
@@ -207,8 +271,14 @@ footer {
 
 /* Optional: Media query for slightly smaller text on very small screens */
 @media (max-width: 400px) {
-    h1 {
+    /* Removed h1 media query as it's replaced by an image */
+    /* h1 {
         font-size: 1.5em;
+    } */
+
+    .header-logo {
+        height: 35px;
+        /* Adjust for smaller screens if needed */
     }
 
     p {
@@ -223,8 +293,4 @@ footer {
     #modalEncouragementText {
         font-size: 1.4em;
     }
-}
-
-.header-logo {
-    max-width: 75px;
 }
