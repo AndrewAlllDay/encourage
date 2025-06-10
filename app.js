@@ -6,19 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeButton = document.querySelector('.close-button');
 
     const phrases = [
-        "Every throw is a new opportunity!",
-        "Shake it off. You've got this!",
-        "Focus on the next shot, not the last one.",
-        "Your best disc golf is still ahead!",
-        "Trust your throw. Believe in yourself.",
-        "One bad hole doesn't define your game.",
-        "Stay calm, stay focused. You're a disc golf warrior!",
-        "Visualize success on this next shot.",
-        "Greatness comes from consistency, not perfection.",
-        "Keep your head up and throw your heart out!",
-        "Embrace the challenge, find your rhythm.",
-        "A clear mind leads to a clear flight.",
-        "Let go of the past, focus on the present flight path."
+        "Breathe - deep breath before every shot, and practice good breathing throughout the round.",
+        "Commit - Focus on a spot, trust your disc and line choice.",
+        "Reset - No matter the outcome of the shot, come back to emotional zero every time. Treat each shot as its own tournament. Talk about the good shots as much as the bad ones.",
+        "Attitude - People will remember you for how you acted on the course, not the way you played. Remember the privilege you have to be able to travel the country as a competitor, and try to enjoy every moment.",
+
     ];
 
     function showModal(message) {
