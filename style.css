@@ -150,6 +150,8 @@ button:active {
     animation: fadeInScale 0.3s ease-out forwards;
 }
 
+
+
 @keyframes fadeInScale {
     from {
         transform: scale(0.9);
@@ -166,7 +168,7 @@ button:active {
     /* Target the specific paragraph in the modal */
     font-size: 1.6em;
     font-weight: var(--font-bold);
-    color: var(--accent-color);
+    color: var(--primary-color);
     margin: 20px 0;
     line-height: 1.4;
     opacity: 0;
