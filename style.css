@@ -35,29 +35,27 @@ body {
     color: var(--text-color);
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    /* CHANGE THIS: */
+    height: 100vh;
+    /* Changed from min-height to exact height */
+    overflow: hidden;
+    /* Added to prevent body-level scrolling */
+    /* END CHANGE */
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.6;
-    /* Removed overflow-x: hidden as it was for the menu */
 }
 
-/* Removed body.menu-open as the menu is gone */
-
 header {
-    display: flex;
-    justify-content: center;
     background-color: var(--primary-color);
     color: var(--light-text-color);
     padding: 1.2em 1em;
     text-align: center;
-    /* Centers the h1 */
     box-shadow: 0 2px 4px var(--shadow-color);
     position: sticky;
     top: 0;
     z-index: 100;
-    /* Removed flex properties as they're not needed for a single h1 */
 }
 
 h1 {
@@ -67,12 +65,9 @@ h1 {
     letter-spacing: 0.02em;
 }
 
-/* --- REMOVED ALL MENU-RELATED CSS BELOW THIS LINE --- */
-/* (e.g., .hamburger-menu, .side-menu, .menu-overlay, .close-menu-btn) */
-/* ----------------------------------------------------- */
-
 main {
     flex: 1;
+    /* This will make main take up all available space */
     padding: 25px;
     display: flex;
     flex-direction: column;
@@ -117,8 +112,9 @@ button:active {
 
 /* Modal Styles */
 .modal {
+    /* The modal itself is fixed and takes up 100% height/width,
+       so its scroll should be independent if its content overflows. */
     display: none;
-    /* Controlled by JS show/hide */
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -126,9 +122,9 @@ button:active {
     width: 100%;
     height: 100%;
     overflow: auto;
+    /* Allows modal content to scroll if it gets too long */
     background-color: rgba(0, 0, 0, 0.6);
     display: flex;
-    /* Changed from none to flex for centering */
     align-items: center;
     justify-content: center;
     -webkit-backdrop-filter: blur(5px);
@@ -172,7 +168,6 @@ button:active {
     font-size: 1.6em;
     font-weight: var(--font-bold);
     color: var(--primary-color);
-    /* Changed to primary-color for consistency with other elements */
     margin: 20px 0;
     line-height: 1.4;
     opacity: 0;
@@ -208,7 +203,6 @@ footer {
     font-size: 0.85em;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     margin-top: auto;
-    /* Push footer to the bottom */
 }
 
 /* Optional: Media query for slightly smaller text on very small screens */
@@ -229,8 +223,4 @@ footer {
     #modalEncouragementText {
         font-size: 1.4em;
     }
-}
-
-.header-logo {
-    max-width: 75px;
 }
