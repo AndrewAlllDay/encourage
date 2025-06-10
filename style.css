@@ -68,7 +68,7 @@ header {
 } */
 
 .header-logo {
-    height: 40px;
+    height: 75px;
     /* Adjusted height for consistency, maintain aspect ratio */
     width: auto;
     /* Ensure aspect ratio is maintained */
@@ -182,7 +182,7 @@ button:active {
 
 #modalEncouragementText {
     font-size: 1.6em;
-    font-weight: var(--font-bold);
+    font-weight: var(--font-regular);
     color: var(--primary-color);
     margin: 20px 0;
     /* Ensures spacing above/below text */
@@ -207,16 +207,27 @@ button:active {
     /* Makes it a perfect circle */
     margin: 30px auto 20px auto;
     /* Centers it horizontally, provides vertical spacing */
-    opacity: 0.7;
-    /* Start slightly transparent */
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     /* Subtle shadow for depth */
     animation: breath 6s infinite ease-in-out;
     /* Apply the animation */
-    display: none;
-    /* Initially hidden, JavaScript will control visibility */
+
+    /* ADD/CHANGE THESE PROPERTIES: */
+    opacity: 0;
+    /* Start hidden */
+    visibility: hidden;
+    /* Start hidden */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    /* Smooth fade-in/out */
     transform: scale(0.8);
     /* Initial scale matches keyframe start */
+}
+
+/* NEW CLASS to show the breathing circle */
+.breathing-circle.show-circle {
+    opacity: 0.7;
+    /* Visible opacity, will animate with 'breath' */
+    visibility: visible;
 }
 
 @keyframes breath {
@@ -224,18 +235,21 @@ button:active {
         transform: scale(0.8);
         /* Start slightly smaller, "breathe out" */
         opacity: 0.7;
+        /* Match the base opacity of show-circle */
     }
 
     50% {
         transform: scale(1.2);
         /* Expand to 120%, "breathe in" */
         opacity: 1;
+        /* Fully opaque at peak */
     }
 
     100% {
         transform: scale(0.8);
         /* Return to original size, "breathe out" */
         opacity: 0.7;
+        /* Match the base opacity of show-circle */
     }
 }
 
@@ -277,7 +291,7 @@ footer {
     } */
 
     .header-logo {
-        height: 35px;
+        height: 50px;
         /* Adjust for smaller screens if needed */
     }
 
@@ -292,5 +306,10 @@ footer {
 
     #modalEncouragementText {
         font-size: 1.4em;
+
     }
+}
+
+.bold-it {
+    font-weight: var(--font-bold);
 }
