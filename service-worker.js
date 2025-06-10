@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dg-focus-cache-v1.0.7'; // <--- THIS MUST BE INCREMENTED!
+const CACHE_NAME = 'dg-focus-cache-v1.0.8'; // <--- THIS MUST BE INCREMENTED!
 const urlsToCache = [
     '/',
     '/index.html',
