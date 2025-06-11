@@ -59,15 +59,8 @@ header {
     z-index: 100;
 }
 
-/* Removed h1 styling as it's replaced by an image */
-/* h1 {
-    margin: 0;
-    font-size: 1.7em;
-    font-weight: var(--font-bold);
-    letter-spacing: 0.02em;
-} */
 
-h1 {
+.lh {
     line-height: 40px;
 }
 
