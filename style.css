@@ -67,6 +67,10 @@ header {
     letter-spacing: 0.02em;
 } */
 
+h1 {
+    line-height: 40px;
+}
+
 .header-logo {
     height: 75px;
     /* Adjusted height for consistency, maintain aspect ratio */
